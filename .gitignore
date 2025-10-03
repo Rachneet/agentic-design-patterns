@@ -17,3 +17,6 @@ uv.lock
 .python-version
 .idea/
 .vscode/
+
+# data files
+gap_*
