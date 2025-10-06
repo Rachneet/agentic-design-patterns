@@ -47,4 +47,3 @@ spam_llm = llm.bind_tools(tools=[SpamSchema])
 response = spam_llm.invoke("I'm a Nigerian prince, you want to be rich")
 output = extract_spam_response(response)
 print(output)
-
