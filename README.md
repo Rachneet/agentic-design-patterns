@@ -4,19 +4,23 @@ A comprehensive hands-on guide to building intelligent systems with **LangChain*
 
 ## 🎯 Overview
 
-This project explores fundamental design patterns for building autonomous AI agents that can reason, plan, collaborate, and interact with external systems. Each pattern is implemented with working code examples using industry-standard frameworks.
+This project explores fundamental design patterns for building autonomous AI agents that can reason, plan, collaborate, and interact with external systems. Each pattern is implemented with working code examples using industry-standard frameworks including **LangChain**, **LangGraph**, **LlamaIndex**, and **CrewAI**.
+
+**New in this version**: Comprehensive **LlamaIndex** integration with advanced retriever implementations, production-ready RAG pipelines, and comparative analysis between different retrieval approaches.
 
 ## 🚀 Key Features
 
 - **8 Core Workflow Patterns**: From sequential processing to multi-agent collaboration
+- **LlamaIndex Integration**: Advanced retriever implementations with production pipelines
 - **Vector Database Integration**: ChromaDB for semantic search and document retrieval
-- **RAG Systems**: Complete Retrieval-Augmented Generation implementations
+- **Advanced RAG Systems**: Multiple retrieval strategies and fusion techniques
+- **Interactive Notebooks**: Comprehensive learning materials and hands-on examples
 - **Memory Management**: Persistent and contextual memory systems using LangGraph
 - **Tool Integration**: Function calling and external system interactions
 - **MCP Implementation**: Model Context Protocol for standardized AI-to-system communication
 - **Multi-Agent Systems**: Collaborative agents with specialized roles
 - **Goal-Driven Development**: Iterative code generation with objective tracking
-- **Advanced Search**: Multi-modal filtering and intelligent recommendation systems
+- **Comparative Analysis**: Performance benchmarking between different approaches
 
 ## 📁 Project Structure
 
@@ -33,20 +37,33 @@ agents_experimental/
 │   │   ├── 3_parallelization.py # Parallel processing
 │   │   ├── 4_reflection.py    # Self-reflection pattern
 │   │   ├── 5_tool_calling.py  # Function calling integration
+│   │   ├── 5_1_tool_calling_crewai.py # CrewAI tool integration
 │   │   ├── 6_planning.py      # Planning and execution
 │   │   ├── 7_multi_agent.py   # Multi-agent collaboration
 │   │   └── 8_goal_setting.py  # Goal-driven iterative development
 │   ├── vector_databases/      # Vector DB and RAG implementations
-│   │   ├── shared_functions.py # Common utilities for vector operations
-│   │   ├── enhanced_rag_chatbot.py # Full RAG chatbot with LLM
-│   │   ├── interactive_search.py # Interactive food recommendation
-│   │   ├── advanced_search.py  # Advanced filtering and search
-│   │   ├── calorie_checker.py  # Calorie-based food recommendations
-│   │   ├── system_comparison.py # Comparison of different approaches
-│   │   └── rag-cheatsheet.md   # Comprehensive RAG guide
+│   │   ├── food_recommender/  # Complete food recommendation system
+│   │   │   ├── shared_functions.py # Common utilities for vector operations
+│   │   │   ├── enhanced_rag_chatbot.py # Full RAG chatbot with LLM
+│   │   │   ├── interactive_search.py # Interactive food recommendation
+│   │   │   ├── advanced_search.py  # Advanced filtering and search
+│   │   │   ├── calorie_checker.py  # Calorie-based food recommendations
+│   │   │   └── system_comparison.py # Comparison of different approaches
+│   │   ├── Build a Smarter Search with LangChain Context Retrieval.ipynb
+│   │   ├── Explore Advanced Retrievers in LlamaIndex.ipynb
+│   │   ├── companypolicies.txt # Sample document for retrieval demos
+│   │   ├── rag-cheatsheet.md   # Comprehensive RAG guide
+│   │   ├── rag_retrievers_cheatsheet.md # Advanced retrievers guide
+│   │   └── retriever_summary.md # Summary of retriever concepts
 │   ├── langgraph/             # LangGraph implementations
 │   │   ├── example_state.py   # State management examples
-│   │   └── lab - LangGraph101 Building Stateful AI Workflows.ipynb
+│   │   ├── structured_outputs.py # Structured data generation
+│   │   ├── report_gen_mas.py  # Multi-agent report generation
+│   │   ├── langgraph_cheatsheet.md # LangGraph reference guide
+│   │   ├── ReAct.ipynb        # ReAct pattern implementation
+│   │   ├── lab - LangGraph101 Building Stateful AI Workflows.ipynb
+│   │   ├── lab - Building a Reflection Agent with LangGraph.ipynb
+│   │   └── lab - Building a Reflection Agent with External Knowledge In.ipynb
 │   ├── mcp/                   # Model Context Protocol
 │   │   ├── client_adk.py      # MCP client implementation
 │   │   ├── client_langgraph.py # LangGraph MCP integration
@@ -127,6 +144,24 @@ agents_experimental/
 - Trade-offs between simplicity and functionality
 - Implementation complexity evaluation
 
+### LlamaIndex Advanced Retrievers
+**Notebook**: `src/vector_databases/Explore Advanced Retrievers in LlamaIndex.ipynb`
+- **Vector Index Retriever**: Semantic similarity search with embeddings
+- **BM25 Retriever**: Advanced keyword-based retrieval with TF-IDF improvements
+- **Document Summary Retriever**: Two-stage retrieval using document summaries
+- **Auto Merging Retriever**: Hierarchical chunking for context preservation
+- **Recursive Retriever**: Following references and citations between documents
+- **Query Fusion Retriever**: Multiple fusion strategies (RRF, Relative Score, Distribution-based)
+- **Production RAG Pipeline**: Complete end-to-end implementation
+
+### LangChain Context Retrieval
+**Notebook**: `src/vector_databases/Build a Smarter Search with LangChain Context Retrieval.ipynb`
+- **Multi-Query Retriever**: Multiple query perspectives for enhanced recall
+- **Self-Query Retriever**: Natural language to structured query conversion
+- **Parent Document Retriever**: Balancing chunk size for embeddings vs. context
+- **Vector Store Retrievers**: MMR and similarity threshold implementations
+- **Metadata Filtering**: Attribute-based search capabilities
+
 ## 🧠 Memory & State Management
 
 ### LangGraph Memory
@@ -206,28 +241,47 @@ python src/memory/memory_langgraph.py
 ### Vector Database & RAG Examples
 ```bash
 # Enhanced RAG chatbot with LLM
-python src/vector_databases/enhanced_rag_chatbot.py
+python src/vector_databases/food_recommender/enhanced_rag_chatbot.py
 
 # Interactive food search system
-python src/vector_databases/interactive_search.py
+python src/vector_databases/food_recommender/interactive_search.py
 
 # Advanced filtering demonstrations
-python src/vector_databases/advanced_search.py
+python src/vector_databases/food_recommender/advanced_search.py
 
 # Compare different search approaches
-python src/vector_databases/system_comparison.py
+python src/vector_databases/food_recommender/system_comparison.py
+```
+
+### Interactive Learning Notebooks
+```bash
+# Explore LlamaIndex advanced retrievers
+jupyter notebook "src/vector_databases/Explore Advanced Retrievers in LlamaIndex.ipynb"
+
+# LangChain context retrieval techniques
+jupyter notebook "src/vector_databases/Build a Smarter Search with LangChain Context Retrieval.ipynb"
+
+# LangGraph workflow building
+jupyter notebook "src/langgraph/lab - LangGraph101 Building Stateful AI Workflows.ipynb"
+
+# Reflection agent patterns
+jupyter notebook "src/langgraph/lab - Building a Reflection Agent with LangGraph.ipynb"
 ```
 
 ## 📚 Key Dependencies
 
 - **LangChain**: Core framework for LLM applications
 - **LangGraph**: State management and workflow orchestration
+- **LlamaIndex**: Advanced retrieval and indexing framework
 - **CrewAI**: Multi-agent system framework
 - **FastMCP**: Model Context Protocol implementation
 - **ChromaDB**: Vector database for similarity search and RAG
-- **HuggingFace Transformers**: Embedding models and LLM integration
+- **HuggingFace Ecosystem**: Transformers, embeddings, and LLM integration
+- **Sentence Transformers**: Advanced embedding models
+- **BM25 & Retrieval Libraries**: Advanced keyword-based search
 - **Google Generative AI**: Gemini model integration
 - **Various LLM Providers**: OpenAI, Groq, Anthropic support
+- **Scientific Computing**: NumPy, SciPy for mathematical operations
 
 ## 🎓 Learning Objectives
 
@@ -242,8 +296,12 @@ By exploring this repository, you will learn:
 7. **Protocol Implementation**: Working with standardized AI communication protocols
 8. **Vector Databases**: Implementing similarity search and retrieval systems
 9. **RAG Architecture**: Building Retrieval-Augmented Generation pipelines
-10. **Search & Filtering**: Advanced query processing and result refinement
-11. **Performance Optimization**: Comparing and optimizing different search approaches
+10. **Advanced Retrievers**: LlamaIndex and LangChain retrieval strategies
+11. **Search & Filtering**: Multi-modal query processing and result refinement
+12. **Performance Optimization**: Comparing and optimizing different search approaches
+13. **Fusion Techniques**: Combining multiple retrieval methods for enhanced results
+14. **Production Pipelines**: Building scalable, production-ready RAG systems
+15. **Comparative Analysis**: Evaluating trade-offs between different AI system architectures
 
 ## 🤝 Contributing
 
