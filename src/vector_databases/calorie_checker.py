@@ -44,6 +44,17 @@ def interactive_food_chatbot(collection):
     print("  • 'quit' or 'exit' - Exit the system")
     print("  • Ctrl+C - Emergency exit")
     print("-" * 50)
+
+    # get user calorie goal
+    calorie_goal = input("\n🍽️  Enter the maximum calorie for your meal: ").strip()
+   
+    if not calorie_goal:
+        print("Enter a calorie goal or 'help' for commands")
+        calorie_goal = input("\n🍽️  Enter the maximum calorie for your meal: ").strip()
+
+    if calorie_goal:
+        calorie_goal = int(calorie_goal)
+        print(f"   Your calorie limit is set to {calorie_goal} calories.")
     
     while True:
         try:
@@ -71,7 +82,7 @@ def interactive_food_chatbot(collection):
             
             # Handle food search
             else:
-                handle_food_search(collection, user_input)
+                handle_food_search(collection, user_input, calorie_goal)
                 
         except KeyboardInterrupt:
             print("\n\n👋 System interrupted. Goodbye!")
@@ -107,14 +118,20 @@ def show_help_menu():
     print("  • 'quit' - Exit the system")
 
 
-def handle_food_search(collection, query):
+def handle_food_search(collection, query, calorie_goal):
     """Handle food similarity search with enhanced display"""
     print(f"\n🔍 Searching for '{query}'...")
     print("   Please wait...")
     search_history.append(query)
     
     # Perform similarity search
-    results = perform_similarity_search(collection, query, 5)
+    results = perform_filtered_similarity_search(
+        collection=collection,
+        query=query,
+        cuisine_filter=None,
+        max_calories=calorie_goal,
+        n_results=5,
+    )
     
     if not results:
         print("❌ No matching foods found.")

@@ -9,11 +9,14 @@ This project explores fundamental design patterns for building autonomous AI age
 ## 🚀 Key Features
 
 - **8 Core Workflow Patterns**: From sequential processing to multi-agent collaboration
+- **Vector Database Integration**: ChromaDB for semantic search and document retrieval
+- **RAG Systems**: Complete Retrieval-Augmented Generation implementations
 - **Memory Management**: Persistent and contextual memory systems using LangGraph
 - **Tool Integration**: Function calling and external system interactions
 - **MCP Implementation**: Model Context Protocol for standardized AI-to-system communication
 - **Multi-Agent Systems**: Collaborative agents with specialized roles
 - **Goal-Driven Development**: Iterative code generation with objective tracking
+- **Advanced Search**: Multi-modal filtering and intelligent recommendation systems
 
 ## 📁 Project Structure
 
@@ -21,6 +24,8 @@ This project explores fundamental design patterns for building autonomous AI age
 agents_experimental/
 ├── main.py                     # Entry point
 ├── pyproject.toml             # Project dependencies
+├── data/
+│   └── FoodDataSet.json       # Sample dataset for RAG demonstrations
 ├── src/
 │   ├── workflows/             # Core agentic patterns
 │   │   ├── 1_sequential.py    # Sequential workflow pattern
@@ -31,6 +36,14 @@ agents_experimental/
 │   │   ├── 6_planning.py      # Planning and execution
 │   │   ├── 7_multi_agent.py   # Multi-agent collaboration
 │   │   └── 8_goal_setting.py  # Goal-driven iterative development
+│   ├── vector_databases/      # Vector DB and RAG implementations
+│   │   ├── shared_functions.py # Common utilities for vector operations
+│   │   ├── enhanced_rag_chatbot.py # Full RAG chatbot with LLM
+│   │   ├── interactive_search.py # Interactive food recommendation
+│   │   ├── advanced_search.py  # Advanced filtering and search
+│   │   ├── calorie_checker.py  # Calorie-based food recommendations
+│   │   ├── system_comparison.py # Comparison of different approaches
+│   │   └── rag-cheatsheet.md   # Comprehensive RAG guide
 │   ├── langgraph/             # LangGraph implementations
 │   │   ├── example_state.py   # State management examples
 │   │   └── lab - LangGraph101 Building Stateful AI Workflows.ipynb
@@ -83,6 +96,36 @@ agents_experimental/
 - Iterative code generation with quality assessment
 - LLM-based goal evaluation and feedback loops
 - Automated code refinement and file generation
+
+## 🗄️ Vector Databases & RAG Systems
+
+### Enhanced RAG Chatbot
+**File**: `src/vector_databases/enhanced_rag_chatbot.py`
+- Complete RAG pipeline with LLM integration
+- ChromaDB for vector storage and similarity search
+- Contextual food recommendations with nutritional data
+- LLM-powered natural language responses
+
+### Interactive Search System
+**File**: `src/vector_databases/interactive_search.py`
+- CLI-based food recommendation chatbot
+- Real-time similarity search with calorie filtering
+- Search history and user preference tracking
+- Interactive command system with help menus
+
+### Advanced Search & Filtering
+**File**: `src/vector_databases/advanced_search.py`
+- Multi-modal filtering (cuisine, calories, ingredients)
+- Combined search strategies demonstration
+- Performance comparison between search approaches
+- Metadata-based result refinement
+
+### System Architecture Comparison
+**File**: `src/vector_databases/system_comparison.py`
+- Side-by-side comparison of different RAG approaches
+- Performance benchmarking and response time analysis
+- Trade-offs between simplicity and functionality
+- Implementation complexity evaluation
 
 ## 🧠 Memory & State Management
 
@@ -160,12 +203,29 @@ python src/workflows/8_goal_setting.py
 python src/memory/memory_langgraph.py
 ```
 
+### Vector Database & RAG Examples
+```bash
+# Enhanced RAG chatbot with LLM
+python src/vector_databases/enhanced_rag_chatbot.py
+
+# Interactive food search system
+python src/vector_databases/interactive_search.py
+
+# Advanced filtering demonstrations
+python src/vector_databases/advanced_search.py
+
+# Compare different search approaches
+python src/vector_databases/system_comparison.py
+```
+
 ## 📚 Key Dependencies
 
 - **LangChain**: Core framework for LLM applications
 - **LangGraph**: State management and workflow orchestration
 - **CrewAI**: Multi-agent system framework
 - **FastMCP**: Model Context Protocol implementation
+- **ChromaDB**: Vector database for similarity search and RAG
+- **HuggingFace Transformers**: Embedding models and LLM integration
 - **Google Generative AI**: Gemini model integration
 - **Various LLM Providers**: OpenAI, Groq, Anthropic support
 
@@ -180,6 +240,10 @@ By exploring this repository, you will learn:
 5. **Tool Integration**: Connecting AI agents to external systems and APIs
 6. **State Management**: Handling complex application state in AI systems
 7. **Protocol Implementation**: Working with standardized AI communication protocols
+8. **Vector Databases**: Implementing similarity search and retrieval systems
+9. **RAG Architecture**: Building Retrieval-Augmented Generation pipelines
+10. **Search & Filtering**: Advanced query processing and result refinement
+11. **Performance Optimization**: Comparing and optimizing different search approaches
 
 ## 🤝 Contributing
 
