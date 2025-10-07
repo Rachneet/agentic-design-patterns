@@ -7,6 +7,7 @@ requires-python = ">=3.12"
 dependencies = [
     "chromadb>=1.1.0",
     "crewai>=0.201.1",
+    "faiss-cpu>=1.12.0",
     "fastmcp>=2.12.4",
     "ipykernel>=6.30.1",
     "langchain-mcp-adapters>=0.1.10",
@@ -23,5 +24,7 @@ dependencies = [
     "rank-bm25>=0.2.2",
     "scipy>=1.16.2",
     "sentence-transformers>=5.1.1",
+    "tensorflow>=2.20.0",
+    "tensorflow-hub>=0.16.1",
     "wget>=3.2",
 ]
