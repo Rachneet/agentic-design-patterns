@@ -20,3 +20,8 @@ uv.lock
 
 # data files
 gap_*
+
+# db files
+agent_memory.db*
+async_agent_memory.db*
+essay_agent.db*
