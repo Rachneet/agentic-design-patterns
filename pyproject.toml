@@ -27,6 +27,7 @@ dependencies = [
     "llama-index-retrievers-bm25>=0.6.5",
     "matplotlib>=3.10.6",
     "mysql-connector-python>=9.4.0",
+    "neo4j>=6.0.3",
     "nest-asyncio>=1.6.0",
     "numpy>=2.3.3",
     "posthog>=5.4.0",
