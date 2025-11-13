@@ -25,3 +25,9 @@ gap_*
 agent_memory.db*
 async_agent_memory.db*
 essay_agent.db*
+
+# kgs
+src/knowledge_graphs/data/
+src/knowledge_graphs/import/
+src/knowledge_graphs/logs/
+src/knowledge_graphs/plugins/
