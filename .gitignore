@@ -17,6 +17,7 @@ uv.lock
 .python-version
 .idea/
 .vscode/
+.DS_Store
 
 # data files
 gap_*
